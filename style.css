@@ -1,0 +1,443 @@
+/* Header genel görünüm */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.2s ease, background-color 0.25s ease;
+}
+
+.site-header.scrolled {
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: saturate(120%) blur(6px);
+}
+
+/* Logo boyutu */
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));
+}
+
+/* Improve logo readability on bright backgrounds */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.9);
+  padding: 6px 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logo:hover img {
+  transform: translateY(-1px) scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 48px;
+  }
+}
+
+
+/* Menü kısmı */
+.site-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Global dark background and base text */
+body { 
+  background: #0b0d12; 
+  color: #e9edf1;
+  scroll-padding-top: 100px; /* Account for sticky header */
+}
+
+.site-header nav a:hover {
+  color: white;
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  color: #111111;
+  padding: 10px 16px;
+  border-radius: 999px; /* pill style */
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+  background-color: #f9f9f9;
+}
+
+.whatsapp-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.whatsapp-button svg {
+  width: 18px;
+  height: 18px;
+  fill: #25D366; /* WhatsApp green icon on white button */
+}
+
+.whatsapp-button span {
+  line-height: 1;
+}
+
+/* HERO BÖLÜMÜ */
+.hero {
+  height: 72vh; /* daha küçük banner */
+  background-image: url('assets/banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat; /* Tekrarlanmasın */
+  position: relative;
+  max-width: 1200px; /* Ortada, yanlar boş kalsın */
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 18px; /* kenarlar yuvarlak */
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+
+/* Arka planı biraz karartmak için */
+.hero::before {
+  content: none; /* Ortadaki banner kararmasın */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+
+}
+
+.hero p {
+  font-size: 20px;
+  margin-top: 10px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+
+}
+
+/* removed empty rule */
+
+/* CONTACT (FOOTER) */
+footer.contact-section {
+  background: #0f1115;
+  color: #e9edf1;
+  padding: 40px 20px;
+}
+.map-section { background: #0b0d12; padding: 0 0 24px 0; }
+.footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px; text-align: left; }
+.footer-logo { height: 64px; width: auto; display: block; margin-bottom: 16px; }
+.footer-links h3, .footer-contact h3 { margin: 0 0 10px 0; font-size: 18px; }
+.footer-links ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.footer-links a { color: #d3dae3; text-decoration: none; }
+.footer-links a:hover { color: #ffffff; }
+
+@media (max-width: 960px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+.contact-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Layout helpers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section {
+  padding: 56px 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Hero overlay */
+.hero--overlay {
+  position: relative;
+}
+
+/* overlay kaldırıldı */
+
+/* hero içeriği kaldırıldı */
+
+/* başlık yok */
+
+.hero-content p {
+  color: #ffffff;
+  margin: 0;
+}
+
+/* rozet yok */
+
+/* LPG Nedir görsel orantısı */
+.lpg-illustration {
+  width: 100%;
+  max-width: 420px; /* daha kısa ve kompakt */
+  height: auto;
+  margin: 0 auto 8px auto;
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .lpg-illustration { max-width: 320px; }
+}
+
+/* LPG Nedir tipografi hizası */
+#hakkimizda h2 { font-size: 28px; margin: 0 0 8px 0; }
+#hakkimizda p { font-size: 16px; line-height: 1.7; color: #d7dbe1; }
+
+/* Quote band */
+.quote-band {
+  background: #031334;
+  color: #ffffff;
+  padding: 40px 0;
+}
+
+.quote-band blockquote {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.service-card {
+  background: #0f1115;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  padding: 12px;
+  text-decoration: none;
+  color: #e9edf1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: block;
+}
+
+.service-thumb {
+  height: 120px;
+  background: #1a1d24;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.service-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.service-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+  background: #C00000;
+  color: #FFFFFF;
+}
+.btn-primary:hover { background: #a80000; box-shadow: 0 10px 24px rgba(192,0,0,0.35); transform: translateY(-1px); }
+
+.btn-ghost {
+  background: rgba(255,255,255,0.12);
+  color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.2); }
+
+/* Tank section */
+.tank-section {
+  background: #0db14b;
+  color: #ffffff;
+  padding: 48px 0;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 24px 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  gap: 8px 16px;
+}
+
+.checklist li::before {
+  content: "✔ ";
+}
+
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ba-item {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.ba-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; }
+
+/* Brand banner */
+.brand-banner {
+  background: #0d0f13;
+  color: #ffffff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.brand-strip { width: 100%; height: auto; border-radius: 10px; }
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* çerçeve oranı */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Keep thumbnails bright on hover/active */
+.gallery-grid a:hover img,
+.gallery-grid a:active img,
+.gallery-grid a:focus img { filter: none; opacity: 1; transform: none; }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 999; }
+.lightbox.open { display: flex; }
+.lb-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.8); }
+.lb-img { position: relative; max-width: 92vw; max-height: 78vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 2; }
+.lb-caption { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: #fff; background: rgba(0,0,0,0.45); padding: 8px 12px; border-radius: 8px; max-width: 90vw; z-index: 3; font-size: 14px; }
+.lb-prev, .lb-next, .lb-close { position: absolute; background: rgba(0,0,0,0.35); color: #fff; border: 1px solid rgba(255,255,255,0.25); width: 48px; height: 48px; border-radius: 999px; display: grid; place-items: center; cursor: pointer; backdrop-filter: blur(4px); z-index: 3; }
+.lb-close { top: 20px; right: 20px; font-size: 24px; }
+.lb-prev { left: 24px; top: 50%; transform: translateY(-50%); font-size: 28px; }
+.lb-next { right: 24px; top: 50%; transform: translateY(-50%); font-size: 28px; }
+
+@media (max-width: 640px) {
+  .lb-prev, .lb-next { width: 40px; height: 40px; }
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .hero-content h1 { font-size: 36px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
+.contact-section h2 {
+  margin: 0 0 16px 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.contact-list { display: none; }
+
+.contact-list li a { display: none; }
+
+.contact-list li a:hover { background: none; }
+
+.contact-list svg { display: none; }
+
+@media (max-width: 640px) { .contact-list { display: none; } }
+
+/* New contact layout */
+.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; text-align: left; }
+.map-embed { position: relative; padding-bottom: 40%; height: 0; overflow: hidden; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+.map-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.map-logo { position: absolute; bottom: 10px; left: 10px; height: 36px; width: auto; z-index: 2; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)); background: rgba(255,255,255,0.95); padding: 6px 8px; border-radius: 10px; }
+.address-link { display: block; margin-top: 10px; color: #d3dae3; text-decoration: none; }
+.address-link:hover { color: #ffffff; }
+.contact-inline { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.contact-inline li a { display: inline-flex; align-items: center; gap: 10px; color: #d3dae3; text-decoration: none; }
+.contact-inline li a:hover { color: #ffffff; }
+.contact-inline svg { width: 18px; height: 18px; fill: currentColor; }
+@media (max-width: 960px) { .contact-grid { grid-template-columns: 1fr; } }
+
+/* Enhance header WhatsApp button with brand border */
+.whatsapp-button {
+  border-color: rgba(37, 211, 102, 0.35);
+}
+
+.whatsapp-button:hover {
+  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.22);
+}
