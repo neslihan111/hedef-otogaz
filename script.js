@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', function () {
   // Smooth scroll for in-page anchors
   const internalLinks = document.querySelectorAll('a[href^="#"]');
@@ -128,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-=======
+
 document.addEventListener('DOMContentLoaded', function () {
   // Smooth scroll for in-page anchors
   const internalLinks = document.querySelectorAll('a[href^="#"]');
@@ -258,4 +257,3 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
->>>>>>> 0b0afae18efa520d61043aa61632c6fd2de1e03d
