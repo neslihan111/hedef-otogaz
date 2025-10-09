@@ -1,0 +1,775 @@
+/* Header genel görünüm */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.2s ease, background-color 0.25s ease;
+}
+
+.site-header.scrolled {
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: saturate(120%) blur(6px);
+}
+
+/* Logo boyutu */
+.logo img {
+  height: 3.75rem;
+  width: auto;
+  display: block;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));
+}
+
+/* Improve logo readability on bright backgrounds */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.9);
+  padding: 0.375rem 0.5rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logo:hover img {
+  transform: translateY(-1px) scale(1.03);
+}
+
+/* Enhanced responsive design */
+@media (max-width: 1200px) {
+  .container {
+    width: 95%;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 3rem;
+  }
+  .site-header {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .site-header nav ul {
+    gap: 1rem;
+  }
+  .site-header nav a {
+    font-size: 0.9rem;
+  }
+  .whatsapp-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  .hero {
+    width: 95%;
+    height: 60vh;
+  }
+  .section {
+    padding: 2.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  .site-header nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .hero {
+    height: 50vh;
+    border-radius: 0.75rem;
+  }
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .section {
+    padding: 2rem 0;
+  }
+}
+
+
+/* Menü kısmı */
+.site-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Global dark background and base text */
+body { 
+  background: #0b0d12; 
+  color: #e9edf1;
+  scroll-padding-top: 6.25rem; /* Account for sticky header */
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.site-header nav a:hover {
+  color: white;
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  background-color: #ffffff;
+  color: #111111;
+  padding: 0.625rem 1rem;
+  border-radius: 999px; /* pill style */
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+  background-color: #f9f9f9;
+}
+
+.whatsapp-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.whatsapp-button svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: #25D366; /* WhatsApp green icon on white button */
+}
+
+.whatsapp-button span {
+  line-height: 1;
+}
+
+/* HERO BÖLÜMÜ */
+.hero {
+  height: 72vh; /* daha küçük banner */
+  background-image: url('assets/banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat; /* Tekrarlanmasın */
+  position: relative;
+  max-width: 75rem; /* Ortada, yanlar boş kalsın */
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 1.125rem; /* kenarlar yuvarlak */
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+
+/* Arka planı biraz karartmak için */
+.hero::before {
+  content: none; /* Ortadaki banner kararmasın */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+
+}
+
+.hero p {
+  font-size: 20px;
+  margin-top: 10px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+
+}
+
+/* removed empty rule */
+
+/* CONTACT (FOOTER) */
+footer.contact-section {
+  background: #0f1115;
+  color: #e9edf1;
+  padding: 2.5rem 1.25rem;
+}
+.map-section { 
+  background: #0b0d12; 
+  padding: 0 0 1.5rem 0; 
+}
+.footer-grid { 
+  display: grid; 
+  grid-template-columns: 1.2fr 1fr 1fr; 
+  gap: 1.5rem; 
+  text-align: left; 
+}
+.footer-logo { 
+  height: 4rem; 
+  width: auto; 
+  display: block; 
+  margin-bottom: 1rem;
+  background: rgba(255,255,255,0.95);
+  padding: 0.375rem 0.5rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.footer-links h3, .footer-contact h3 { 
+  margin: 0 0 0.625rem 0; 
+  font-size: 1.125rem; 
+}
+.footer-links ul { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+  display: grid; 
+  gap: 0.375rem; 
+}
+.footer-links a { 
+  color: #d3dae3; 
+  text-decoration: none; 
+  transition: color 0.2s ease;
+}
+.footer-links a:hover { 
+  color: #ffffff; 
+}
+
+@media (max-width: 960px) {
+  .footer-grid { 
+    grid-template-columns: 1fr; 
+    gap: 2rem;
+  }
+  footer.contact-section {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-logo {
+    height: 3.5rem;
+    padding: 0.25rem 0.375rem;
+  }
+  .footer-links h3, .footer-contact h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  footer.contact-section {
+    padding: 1.5rem 0.75rem;
+  }
+  .footer-grid {
+    gap: 1.5rem;
+  }
+}
+
+.contact-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Layout helpers */
+.container {
+  max-width: 75rem;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: 3.5rem 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Hero overlay */
+.hero--overlay {
+  position: relative;
+}
+
+/* overlay kaldırıldı */
+
+/* hero içeriği kaldırıldı */
+
+/* başlık yok */
+
+.hero-content p {
+  color: #ffffff;
+  margin: 0;
+}
+
+/* rozet yok */
+
+/* LPG Nedir görsel orantısı */
+.lpg-illustration {
+  width: 100%;
+  max-width: 26.25rem; /* daha kısa ve kompakt */
+  height: auto;
+  margin: 0 auto 0.5rem auto;
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .lpg-illustration { max-width: 20rem; }
+}
+
+@media (max-width: 768px) {
+  .lpg-illustration { max-width: 18rem; }
+}
+
+@media (max-width: 480px) {
+  .lpg-illustration { max-width: 16rem; }
+}
+
+/* LPG Nedir tipografi hizası */
+#hakkimizda h2 { font-size: 1.75rem; margin: 0 0 0.5rem 0; }
+#hakkimizda p { font-size: 1rem; line-height: 1.7; color: #d7dbe1; }
+
+@media (max-width: 768px) {
+  #hakkimizda h2 { font-size: 1.5rem; }
+  #hakkimizda p { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  #hakkimizda h2 { font-size: 1.25rem; }
+  #hakkimizda p { font-size: 0.875rem; }
+}
+
+/* Quote band */
+.quote-band {
+  background: #031334;
+  color: #ffffff;
+  padding: 2.5rem 0;
+}
+
+.quote-band blockquote {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .quote-band {
+    padding: 2rem 0;
+  }
+  .quote-band blockquote {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-band {
+    padding: 1.5rem 0;
+  }
+  .quote-band blockquote {
+    font-size: 1.25rem;
+  }
+}
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.service-card {
+  background: #0f1115;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  padding: 0.75rem;
+  text-decoration: none;
+  color: #e9edf1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-thumb {
+  height: 7.5rem;
+  background: #1a1d24;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.service-thumb img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.service-card:hover .service-thumb img {
+  transform: scale(1.05);
+}
+
+.service-card:hover { 
+  transform: translateY(-0.125rem); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
+}
+
+.service-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  flex-grow: 1;
+}
+
+.service-card p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #b8bcc8;
+}
+
+/* Global responsive images and media */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+.btn-primary {
+  background: #C00000;
+  color: #FFFFFF;
+}
+.btn-primary:hover { background: #a80000; box-shadow: 0 10px 24px rgba(192,0,0,0.35); transform: translateY(-1px); }
+
+.btn-ghost {
+  background: rgba(255,255,255,0.12);
+  color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.2); }
+
+/* Tank section */
+.tank-section {
+  background: #0db14b;
+  color: #ffffff;
+  padding: 3rem 0;
+}
+
+@media (max-width: 768px) {
+  .tank-section {
+    padding: 2rem 0;
+  }
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .checklist {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.checklist li::before {
+  content: "✔ ";
+}
+
+.before-after {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.ba-item {
+  background: rgba(255,255,255,0.15);
+  border-radius: 0.625rem;
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.ba-item:hover {
+  transform: translateY(-0.125rem);
+}
+
+@media (max-width: 768px) {
+  .ba-item {
+    padding: 1rem;
+  }
+}
+
+.ba-item img { 
+  width: 100%; 
+  height: 13.75rem; 
+  object-fit: cover; 
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .ba-item img {
+    height: 12rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ba-item img {
+    height: 10rem;
+  }
+}
+
+/* Brand banner */
+.brand-banner {
+  background: #0d0f13;
+  color: #ffffff;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.brand-strip { 
+  width: 100%; 
+  height: auto; 
+  border-radius: 0.625rem;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .brand-banner {
+    padding: 2rem 0;
+  }
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* çerçeve oranı */
+  object-fit: cover;
+  border-radius: 0.625rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.2s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+}
+
+/* Keep thumbnails bright on hover/active */
+.gallery-grid a:hover img,
+.gallery-grid a:active img,
+.gallery-grid a:focus img { filter: none; opacity: 1; transform: none; }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 999; }
+.lightbox.open { display: flex; }
+.lb-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.8); }
+.lb-img { position: relative; max-width: 92vw; max-height: 78vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 2; }
+.lb-caption { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: #fff; background: rgba(0,0,0,0.45); padding: 8px 12px; border-radius: 8px; max-width: 90vw; z-index: 3; font-size: 14px; }
+.lb-prev, .lb-next, .lb-close { position: absolute; background: rgba(0,0,0,0.35); color: #fff; border: 1px solid rgba(255,255,255,0.25); width: 48px; height: 48px; border-radius: 999px; display: grid; place-items: center; cursor: pointer; backdrop-filter: blur(4px); z-index: 3; }
+.lb-close { top: 20px; right: 20px; font-size: 24px; }
+.lb-prev { left: 24px; top: 50%; transform: translateY(-50%); font-size: 28px; }
+.lb-next { right: 24px; top: 50%; transform: translateY(-50%); font-size: 28px; }
+
+@media (max-width: 640px) {
+  .lb-prev, .lb-next { width: 40px; height: 40px; }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
+.contact-section h2 {
+  margin: 0 0 16px 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.contact-list { display: none; }
+
+.contact-list li a { display: none; }
+
+.contact-list li a:hover { background: none; }
+
+.contact-list svg { display: none; }
+
+@media (max-width: 640px) { .contact-list { display: none; } }
+
+/* New contact layout */
+.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; text-align: left; }
+.map-embed { 
+  position: relative; 
+  padding-bottom: 40%; 
+  height: 0; 
+  overflow: hidden; 
+  border-radius: 0.875rem; 
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25); 
+}
+.map-embed iframe { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  border: 0; 
+}
+.map-logo { 
+  position: absolute; 
+  bottom: 0.625rem; 
+  left: 0.625rem; 
+  height: 2.25rem; 
+  width: auto; 
+  z-index: 2; 
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)); 
+  background: rgba(255,255,255,0.95); 
+  padding: 0.375rem 0.5rem; 
+  border-radius: 0.625rem; 
+}
+.address-link { 
+  display: block; 
+  margin-top: 0.625rem; 
+  color: #d3dae3; 
+  text-decoration: none; 
+}
+.address-link:hover { 
+  color: #ffffff; 
+}
+.contact-inline { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  display: grid; 
+  gap: 0.75rem; 
+}
+.contact-inline li a { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.625rem; 
+  color: #d3dae3; 
+  text-decoration: none; 
+  transition: color 0.2s ease;
+}
+.contact-inline li a:hover { 
+  color: #ffffff; 
+}
+.contact-inline svg { 
+  width: 1.125rem; 
+  height: 1.125rem; 
+  fill: currentColor; 
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .map-embed {
+    padding-bottom: 50%;
+  }
+  .contact-inline {
+    gap: 1rem;
+  }
+  .contact-inline li a {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-embed {
+    padding-bottom: 60%;
+    border-radius: 0.5rem;
+  }
+  .map-logo {
+    height: 2rem;
+    padding: 0.25rem 0.375rem;
+  }
+}
+
+/* Enhance header WhatsApp button with brand border */
+.whatsapp-button {
+  border-color: rgba(37, 211, 102, 0.35);
+}
+
+.whatsapp-button:hover {
+  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.22);
+}
