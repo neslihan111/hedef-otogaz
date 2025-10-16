@@ -14,6 +14,57 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top: y, behavior: 'smooth' });
     }, { passive: true });
   });
+  document.addEventListener('DOMContentLoaded', () => {
+  /* ========== Smooth scroll (sticky header offset’li) ========== */
+  const header = document.querySelector('.site-header');
+  const headerH = () => (header?.offsetHeight ?? 0);
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const targetId = link.getAttribute('href');
+      if (!targetId || targetId.length <= 1) return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      e.preventDefault();
+      const y = target.getBoundingClientRect().top + window.pageYOffset - headerH() - 8;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }, { passive: true });
+  });
+
+
+  /* ========== Mobil menü (burger toggle) ========== */
+  const nav = header?.querySelector('nav');
+  let burger = header?.querySelector('.burger');
+
+  // Eğer HTML'de burger butonu yoksa oluştur
+  if (!burger) {
+    burger = document.createElement('button');
+    burger.className = 'burger';
+    burger.setAttribute('aria-label', 'Menüyü Aç/Kapat');
+    burger.textContent = '☰';
+    header?.insertBefore(burger, nav);
+  }
+
+  // Menü üst boşluğunu header yüksekliğine göre ayarla
+  const placeNav = () => {
+    if (!nav || !header) return;
+    nav.style.top = header.offsetHeight + 'px';
+  };
+  placeNav();
+  window.addEventListener('resize', placeNav);
+
+  // Menü aç/kapa fonksiyonu
+  const toggleMenu = (open) => {
+    const isOpen = open ?? !nav.classList.contains('open');
+    nav.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('nav-open', isOpen);
+  };
+
+  burger.addEventListener('click', () => toggleMenu());
+  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+});
+
 
   /* ========== Header shadow on scroll ========== */
   const applyShadow = () => {
