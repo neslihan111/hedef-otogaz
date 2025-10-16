@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ========== Mobil menü (burger toggle) ========== */
+  const header = document.querySelector('.site-header');
   const nav = header?.querySelector('nav');
   let burger = header?.querySelector('.burger');
 
