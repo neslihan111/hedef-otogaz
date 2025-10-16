@@ -49,24 +49,45 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ========== HERO ========== */
-.hero{
-  width:min(1200px, 92%);
-  height: 64vh; min-height: 360px; max-height: 760px;
+.hero {
+  width: min(1200px, 92%);
+  height: 64vh;
+  min-height: 360px;
+  max-height: 760px;
   margin: 18px auto 24px;
   border-radius: var(--radius-lg);
-  overflow:hidden; box-shadow: var(--shadow);
-  background:#1a1a1b;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background-color: #1a1a1b;           /* yedek arka plan */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
-.hero-img{
-  width:100%; height:100%; object-fit: cover; object-position: center;
-  display:block; border-radius: var(--radius-lg);
+
+/* Banner resmi */
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                   /* görseli orantılı kırp */
+  object-position: center;
+  display: block;
+  border-radius: var(--radius-lg);
+  background-color: #d40000;           /* yedek zemin */
 }
 
 /* Küçük ekran: biraz daha kısa ve kenarlar küçük */
-@media (max-width: 768px){
-  .hero{ height: 46vh; min-height: 240px; border-radius:12px; }
-  .hero-img{ border-radius:12px; }
+@media (max-width: 768px) {
+  .hero {
+    height: 46vh;
+    min-height: 240px;
+    border-radius: 12px;
+  }
+  .hero-img {
+    border-radius: 12px;
+  }
 }
+
 
 /* ========== BÖLÜM GENEL ========== */
 .section{ padding: 48px 0; }
@@ -162,3 +183,16 @@ a { color: inherit; text-decoration: none; }
 .btn{ display:inline-block; padding:10px 14px; border-radius:10px; }
 .btn-primary{ background:var(--brand-red); color:#fff; font-weight:700; }
 .btn-ghost{ border:1px solid rgba(255,255,255,.2); color:#fff; }
+
+/* LOGO PNG beyaz zemin + yuvarlak */
+.site-header .logo img{
+  width: 40px;
+  height: 40px;           /* kare olsun */
+  object-fit: contain;
+  background: #fff;       /* beyaz arka plan */
+  padding: 6px;           /* görsele nefes */
+  border-radius: 10px;     /* daire istersen 50%, köşeli istersen 10px yap */
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
+
