@@ -13,11 +13,11 @@ a { color: inherit; text-decoration: none; }
   --brand-red: #d40000;
 }
 
-/* ========== HEADER / NAV (GÜNCEL) ========== */
+/* ========== HEADER / NAV ========== */
 .site-header{
   position: sticky;
   top: 0;
-  z-index: 5000; /* menü her şeyin üstünde */
+  z-index: 5000;
   background:#0f0f10;
   border-bottom: 1px solid rgba(255,255,255,.06);
   display:flex; align-items:center; gap:16px;
@@ -29,9 +29,9 @@ a { color: inherit; text-decoration: none; }
 .site-header .logo img{
   width: 42px; height: 42px;
   object-fit: contain;
-  background:#fff;          /* beyaz zemin */
+  background:#fff;
   padding: 6px;
-  border-radius: 10px;      /* daire istersen 50% yapabilirsin */
+  border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
 
@@ -40,10 +40,13 @@ a { color: inherit; text-decoration: none; }
 .site-header nav ul{
   list-style:none; display:flex; gap:28px; margin:0; padding:0;
 }
-.site-header nav a{ color:#fff; font-weight:600; opacity:.92; }
+.site-header nav a{
+  color:#fff; font-weight:600; opacity:.92;
+  transition: opacity .25s ease;
+}
 .site-header nav a:hover{ opacity:1; }
 
-/* WhatsApp */
+/* WhatsApp butonu */
 .contact-btn{ margin-left: 8px; }
 .whatsapp-button{
   display:flex; align-items:center; gap:8px; padding:10px 14px;
@@ -51,23 +54,29 @@ a { color: inherit; text-decoration: none; }
 }
 .whatsapp-button svg{ width:20px; height:20px; fill:#111; }
 
-/* Burger (mobilde görünsün) */
+/* Burger */
 .burger{
-  display:none; margin-left:auto;
-  background:transparent; border:0; color:#fff;
-  font-size:28px; line-height:1; padding:6px 8px; cursor:pointer;
+  display:none;
+  margin-left:auto;
+  background:transparent;
+  border:0;
+  color:#fff;
+  font-size:28px;
+  line-height:1;
+  padding:6px 8px;
+  cursor:pointer;
 }
 
-/* ========== Mobil ========== */
+/* Mobil görünüm */
 @media (max-width: 768px){
   .burger{ display:block; }
 
-  /* Menü: ekrana sabitle + yüksek z-index */
   .site-header nav{
     display:none;
-    position: fixed;          /* absolute DEĞİL */
-    left:0; right:0; top:64px;/* JS ile dinamik de ayarlanıyor */
-    z-index: 6000;            /* header'ın da üstünde */
+    position: fixed;
+    left:0; right:0;
+    top:64px;
+    z-index: 6000; /* menü her şeyin üstünde */
     background:#0f0f10;
     padding:12px 16px 16px;
     border-bottom:1px solid rgba(255,255,255,.08);
@@ -79,37 +88,40 @@ a { color: inherit; text-decoration: none; }
     gap:14px;
   }
 
-  .contact-btn{ display:none; } /* istersen menü içine alırız */
+  .contact-btn{ display:none; }
 }
 
-/* Menü açıkken arka sayfa kaymasın */
+/* Menü açıkken sayfa kaymasın */
 body.nav-open{ overflow:hidden; }
-
 
 /* ========== HERO ========== */
 .hero{
   width: min(1200px, 92%);
-  /* oranı korumak için sabit yükseklik yerine aspect-ratio kullan */
-  aspect-ratio: 16 / 7;            /* ~1920x840 benzeri; istersen 16/6 yapabilirsin */
+  aspect-ratio: 16 / 9;
   margin: 18px auto 24px;
   border-radius: 18px;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
   box-shadow: 0 10px 28px rgba(0,0,0,.35);
-  position: relative;              /* eklendi */
-  z-index: 1;                      /* eklendi */
 
-  /* Banner'ı arka plan olarak veriyoruz */
-  background: #d40000 url('assets/banner.jpg') center / cover no-repeat;
+  /* Banner arka plan */
+  background: #d40000 url('/assets/banner.jpg?v=8') center top / contain no-repeat !important;
 }
 
-/* Küçük ekran: biraz daha yüksek oran daha iyi okuma sağlar */
+/* Mobil hero */
 @media (max-width: 768px){
   .hero{
-    aspect-ratio: 16 / 9;
     width: 95%;
+    aspect-ratio: 16 / 10;
     border-radius: 12px;
   }
 }
+
+/* Lightbox varsayılan olarak tıklamayı engellemesin */
+.lightbox{ display:none; pointer-events:none; z-index:7000; }
+.lightbox.open{ display:flex; pointer-events:auto; }
+
 
 
 /* ========== BÖLÜM GENEL ========== */
@@ -217,6 +229,7 @@ body.nav-open{ overflow:hidden; }
   border-radius: 10px;     /* daire istersen 50%, köşeli istersen 10px yap */
   box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
+
 
 
 
