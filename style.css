@@ -106,7 +106,7 @@ body.nav-open{ overflow:hidden; }
   box-shadow: 0 10px 28px rgba(0,0,0,.35);
 
   /* Banner arka plan */
-  background: #d40000 url('/assets/banner.jpg?v=8') center top / contain no-repeat !important;
+  background: #d40000 url('/assets/banner.jpg') center top / contain no-repeat !important;
 }
 
 /* Mobil hero */
@@ -229,6 +229,7 @@ body.nav-open{ overflow:hidden; }
   border-radius: 10px;     /* daire istersen 50%, köşeli istersen 10px yap */
   box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
+
 
 
 
